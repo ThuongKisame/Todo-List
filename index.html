@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/skin/color-1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Todo List</title>
+</head>
+<body class="">
+    <div class="main-container ">
+        <div class="content col-4">
+            <h4 class="title">Design task</h4>
+            <div class="align-center">
+                <input type="text" class="input__new-task">
+                <button class="btn btn--add">
+                        +
+                </button>
+            </div>
+            <div class="today-task">
+                <div class="today-task__title">
+                    Today's tasks
+                </div>
+                <div class="today-task__list">
+                    <!-- <div class="align-center today-task__wrap">
+                        <div class="today-task__item"><span class="today-task__item-name">task1</span>
+                        </div>
+                        <div class="recycle-bin__wrap">
+                        </div>
+                        <i class="recycle-bin__icon fa-solid fa-trash-can hover"></i>
+                    </div> -->
+                </div>
+                <div class="total-pending align-between">
+                    <div class="total-pending__titile">You have <span class="total-pending__num">0</span> padding tasks</div>
+                    <button class="btn btn--clear">Clear all</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
