@@ -192,7 +192,8 @@ html {
 }
 
 .today-task__wrap:hover .recycle-bin__icon {
-    transform: translateX(-60px);
+    opacity: 1;
+    transform: translateX(-35px);
 }
 
 .recycle-bin__wrap {
@@ -211,11 +212,12 @@ html {
 .recycle-bin__icon {
     z-index: 1;
     position: absolute;
-    right: 0px;
+    right: 20px;
     font-size: 2rem;
     color: var(--primary-color);
-    transition: all 0.3s ease-in-out;
+    transition: all 0.5s ease-in-out;
     will-change: transform;
+    opacity: 0;
 }
 
 .today-task__list {
