@@ -92,6 +92,13 @@ html {
     width: 100%;
 }
 
+.delay-1{
+    animation-delay:1s ;
+}
+.delay-0-2{
+    animation-delay:0,2s ;
+}
+
 .btn {
     padding: 7px 16px;
     border: 1px solid var(--bg-black-50);
@@ -115,6 +122,22 @@ html {
     opacity: 0.7;
 }
 
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.today-task__list::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+    display: block;
+    height: 30px;
+    
+}
 
 .align-center {
     display: flex;
@@ -180,11 +203,22 @@ html {
     background-color: var(--bg-black-50);
     border-radius: 16px;
     color: var(--text-black-700);
-    position: relative;
     display: flex;
+    position: relative;
     align-items: center;
     padding-left: 16px;
     margin-left: 8px;
+   
+    /* bottom: 0px; */
+    transform : translateY(10px)
+}
+.today-task__item--animation{
+    animation: transTaskItem 1s ease-out;
+    animation-fill-mode: forwards;
+}
+@keyframes transTaskItem{
+    /* 0% {transform : translateY(30px)} */
+    100%{transform : translateY(0px)}  
 }
 
 .today-task__item-name {
@@ -208,6 +242,7 @@ html {
     position: relative;
     margin-bottom: 8px;
 }
+
 
 .recycle-bin__icon {
     z-index: 1;
@@ -242,12 +277,14 @@ html {
         width: 50%;
     }
 }
+
 @media only screen and (max-width: 600px) {
     .col-4 {
         flex: 0 0 auto;
         width: 80%;
     }
 }
+
 @media only screen and (max-width: 400px) {
     .col-4 {
         flex: 0 0 auto;

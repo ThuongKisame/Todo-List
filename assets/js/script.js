@@ -13,24 +13,72 @@ function clickOnRecycleBin(recycleBin){
             let id=recycleBin[i].getAttribute("id")
             objIndex = tasks.findIndex((obj => obj.id == id));
             tasks.splice(objIndex, 1);
-            renderTasks()
+            renderTasks(3)
         })
         
     }
 }
-function renderTasks(){
-    listTask.innerHTML=``
-    tasks.forEach((i) => {
-        listTask.innerHTML+=`
-        <div class="align-center today-task__wrap">
-                        <div class="today-task__item"><span class="today-task__item-name">`+i.value+`</span>
+function renderTasks(type){
+    if(type===1){
+        listTask.innerHTML=``
+        for (let i = 0; i < tasks.length; i++) {
+            
+            listTask.innerHTML+=`
+            <div class="align-center today-task__wrap">
+                            <div class="today-task__item today-task__item--animation" style="animation-delay:0.`+i+1+`s"><span class="today-task__item-name">`+tasks[i].value+`</span>
+                            </div>
+                            <div class="recycle-bin__wrap">
+                            </div>
+                            <i class="recycle-bin__icon fa-solid fa-trash-can hover " id="`+tasks[i].id+`"></i>
                         </div>
-                        <div class="recycle-bin__wrap">
+            `
+            
+        }
+    }
+    if(type===2){
+        listTask.innerHTML=``
+        for (let i = 0; i < tasks.length; i++) {
+            if(i==tasks.length-1){
+                listTask.innerHTML+=`
+                <div class="align-center today-task__wrap">
+                                <div class="today-task__item today-task__item--animation" style="animation-delay:0.`+i+1+`s"><span class="today-task__item-name">`+tasks[i].value+`</span>
+                                </div>
+                                <div class="recycle-bin__wrap">
+                                </div>
+                                <i class="recycle-bin__icon fa-solid fa-trash-can hover " id="`+tasks[i].id+`"></i>
+                            </div>
+                `
+            }else{
+
+                listTask.innerHTML+=`
+                <div class="align-center today-task__wrap">
+                                <div class="today-task__item " style="transform : translateY(0px);animation-delay:0.`+i+1+`s"><span class="today-task__item-name">`+tasks[i].value+`</span>
+                                </div>
+                                <div class="recycle-bin__wrap">
+                                </div>
+                                <i class="recycle-bin__icon fa-solid fa-trash-can hover " id="`+tasks[i].id+`"></i>
+                            </div>
+                `
+                
+            }
+        }
+    }
+    if(type==3){
+        listTask.innerHTML=``
+        for (let i = 0; i < tasks.length; i++) {
+            
+            listTask.innerHTML+=`
+            <div class="align-center today-task__wrap">
+                            <div class="today-task__item" style="transform : translateY(0px);animation-delay:0.`+i+1+`s"><span class="today-task__item-name">`+tasks[i].value+`</span>
+                            </div>
+                            <div class="recycle-bin__wrap">
+                            </div>
+                            <i class="recycle-bin__icon fa-solid fa-trash-can hover " id="`+tasks[i].id+`"></i>
                         </div>
-                        <i class="recycle-bin__icon fa-solid fa-trash-can hover " id="`+i.id+`"></i>
-                    </div>
-        `
-    })
+            `
+            
+        }
+    }
     numberTask.innerHTML=tasks.length
     localStorage.setItem("list-Task",JSON.stringify(tasks))
     recycleBin=document.querySelectorAll('.recycle-bin__icon')
@@ -43,7 +91,7 @@ function confirmValue(){
     }
     tasks.push(data)
     stmpId++;
-    renderTasks()
+    renderTasks(2)
     inputNewTask.value="";
 }
 
@@ -56,7 +104,7 @@ function run() {
        
         if(tasks.length>0){
             stmpId=tasks[tasks.length-1].id+1
-            renderTasks()
+            renderTasks(1)
         }
     }
     document.querySelector('.btn--add').addEventListener('click', function () {
@@ -71,7 +119,7 @@ function run() {
     })
     btnClear.addEventListener('click',function(){
         tasks=[]
-        renderTasks()
+        renderTasks(3)
     })
 }
 run();
